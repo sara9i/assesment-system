@@ -10,7 +10,7 @@ import {
 const { Title, Text } = Typography;
 const { Option } = Select;
 
-const CommunitiesSearchForm = ({
+const AssessmentsSearchForm = ({
   form,
   resetForm,
   onFinish,
@@ -45,24 +45,13 @@ const CommunitiesSearchForm = ({
         </Col>
 
         <Col span={4}>
-          <Form.Item name="startDate">
+          <Form.Item name="createdAt">
             <DatePicker
               showTime={true}
               showNow={false}
               format={dateFormat}
               style={{ width: '100%' }}
-              placeholder="Select Start Date"
-            />
-          </Form.Item>
-        </Col>
-        <Col span={4}>
-          <Form.Item name="endDate">
-            <DatePicker
-              showTime={true}
-              showNow={false}
-              format={dateFormat}
-              style={{ width: '100%' }}
-              placeholder="Select End Date"
+              placeholder="Select CreatedAt Date"
             />
           </Form.Item>
         </Col>
@@ -81,4 +70,4 @@ const CommunitiesSearchForm = ({
   );
 };
 
-export default CommunitiesSearchForm;
+export default AssessmentsSearchForm;

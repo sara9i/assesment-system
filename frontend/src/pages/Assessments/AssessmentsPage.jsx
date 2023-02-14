@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import TableWithSorter from '../../components/Common/TableWithSorter';
 import { getAssessments } from '../../services/assessmentService';
 import AssessmentAdd from './components/AddAssesment/AssessmentAdd';
-import CommunitiesSearchForm from './components/CommunitiesSearchForm.jsx';
+import AssessmentsSearchForm from './components/AssessmentsSearchForm.jsx';
 import {
   defaultPageSize,
   sortOrderList
@@ -30,10 +30,10 @@ const AssessmentPage = () => {
 
   const [filters, setFilters] = useState({
     sortOrder: sortOrderList[0].value,
-    startDate: null,
+    createdAt: null,
     endDate: null,
     sortBy: 'id',
-    status: null
+    assessmentSearch: null
   });
 
   const columns = [
@@ -89,12 +89,12 @@ const AssessmentPage = () => {
   const onFinish = (values) => {
     setPageNo(1);
     if (
-      new Date(values?.startDate).getTime() >
-      new Date(values?.endDate).getTime()
+      new Date(values?.createdAt).getTime() >
+      new Date().getTime()
     ) {
       notification['error']({
         message: 'Error',
-        description: 'End Date cannot be before Start Date'
+        description: 'createdAt Date cannot be in future'
       });
       return;
     }
@@ -103,7 +103,7 @@ const AssessmentPage = () => {
       sortOrder: values.sortOrder ?? sortOrderList[0].value,
       sortBy: 'id',
       assessmentSearch: values.assessmentSearch ?? null,
-      isActive: values.isActive ?? null
+      createdAt: values.createdAt ? values.createdAt.utc().format() : null,
     };
 
     setFilters(filterData);
@@ -157,7 +157,7 @@ const AssessmentPage = () => {
             isOpen={visibleAddModal}
             toggle={() => setVisibleAddModel(false)}
           />
-        <CommunitiesSearchForm
+        <AssessmentsSearchForm
           onFinish={onFinish}
           resetForm={resetForm}
           form={form}

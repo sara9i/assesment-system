@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import "../../../components/Common/Form.css";
 import { getAssessment } from "../../../services/assessmentService";
 
-const { Text, Title, Row, Col } = Typography;
+const { Title } = Typography;
 const tableStyle = {
   fontFamily: "Montserrat, sans-serif",
   fontSize: "12px",
