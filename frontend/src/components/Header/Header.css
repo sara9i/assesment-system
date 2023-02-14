@@ -1,0 +1,15 @@
+.logo {
+  font-family: "Montserrat";
+  color: white;
+  font-weight: 900;
+  font-size: 1.5rem;
+  float: left;
+}
+
+.logo > span {
+  color: #9219fb;
+}
+
+.logout-button {
+  float: right;
+}

@@ -1,0 +1,50 @@
+{
+  "name": "assessment_system",
+  "version": "1.0.0",
+  "description": "Assessment system assignment for metaschool FS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
+    "clean-start": "rm -rf node_modules && npm i && ts-node-dev --respawn --pretty --transpile-only src/index.ts",
+    "build": "mkdir -p lib/src && cp -r ./src lib/src/ && tsc",
+    "dev-node": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sara9i/assessment_system.git"
+  },
+  "author": "sara iftikhar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sara9i/parking_lot/issues"
+  },
+  "homepage": "https://github.com/sara9i/parking_lot#readme",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.11",
+    "@types/morgan": "^1.9.2",
+    "@types/node": "^14.14.37",
+    "@types/nodemon": "^1.19.0",
+    "@types/swagger-ui-express": "^4.1.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "const": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "moment": "^2.29.1",
+    "sequelize": "^6.28.0",
+    "sequelize-cli": "^6.6.0",
+    "sqlite3": "^5.1.4",
+    "swagger-ui-express": "^4.1.6",
+    "yup": "^1.0.0"
+  }
+}

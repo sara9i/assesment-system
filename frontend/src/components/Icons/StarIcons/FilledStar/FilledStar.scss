@@ -1,0 +1,15 @@
+@import '../../../../styles/all';
+
+.c-FilledStar {
+  &--primary {
+    path {
+      fill: $rating-star-color;
+    }
+  }
+
+  &--greyed {
+    path {
+      fill: $rating-star-color;
+    }
+  }
+}

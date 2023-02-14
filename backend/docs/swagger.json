@@ -1,0 +1,225 @@
+{
+  "swagger": "2.0",
+  "host": "localhost:8000",
+  "basePath": "/api/v1",
+  "schemes": [
+    "http"
+  ],
+  "info": {
+    "title": "Assessment System (14-02-2023)",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "users",
+      "description": "Operations about users"
+    },
+    {
+      "name": "assessment",
+      "description": "Operations about assessments"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "description": "New User API",
+        "required": [
+          "name",
+          "email",
+          "password"
+        ],
+        "parameters": [
+          {
+            "name": "Body Parameters",
+            "in": "body",
+            "description": "Enter required body parameters",
+            "schema": {
+              "$ref": "#/definitions/users"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid Input"
+          },
+          "404": {
+            "description": "API not found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Get details of all users",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Fetch Successfully."
+          },
+          "400": {
+            "description": "Invalid Input"
+          },
+          "404": {
+            "description": "API not found"
+          }
+        }
+      }
+    },
+    "/assessments": {
+      "post": {
+        "tags": [
+          "assessments"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "description": "New Assessment API",
+        "parameters": [
+          {
+            "name": "Body Parameters",
+            "in": "body",
+            "description": "Enter required body parameters",
+            "schema": {
+              "$ref": "#/definitions/assessments"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Created successfully"
+          },
+          "400": {
+            "description": "Invalid Input"
+          },
+          "404": {
+            "description": "API not found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "assessments"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Get list of all assessments",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Fetch Successfully."
+          },
+          "400": {
+            "description": "Invalid Input"
+          },
+          "404": {
+            "description": "API not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "users": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "roleId": {
+          "type": "integer"
+        }
+      }
+    },
+    "assessments": {
+      "type": "object",
+      "properties": {
+        "title":{
+          "type":"string"
+        },
+        "description":{
+          "type":"string"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "sections": {
+          "type": "array",
+          "items":
+           {"$ref": "#/definitions/section"}
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "properties": {
+        "title":{
+          "type":"string"
+        },
+        "description":{
+          "type":"string"
+        },
+        "questions": {
+          "type": "array",
+          "items":
+           {"$ref": "#/definitions/questions"}
+        }
+      }
+    },
+    "questions": {
+      "type": "object",
+      "properties": {
+        "description":{
+          "type":"string"
+        },
+        "answers": {
+          "type": "array",
+          "items":
+           {"$ref": "#/definitions/answers"}
+        }
+      }
+    },
+    "answers": {
+      "type": "object",
+      "properties": {
+        "description":{
+          "type":"string"
+        },
+        "isCorrect":{
+          "type":"boolean"
+        }
+      }
+    }
+  }
+}

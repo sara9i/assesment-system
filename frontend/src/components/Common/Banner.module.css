@@ -1,0 +1,15 @@
+.wrapper {
+  color: #876800;
+  background-color: #fffb8f;
+  padding: 8px;
+  margin: 16px 0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.wrapper > p {
+  margin: 0;
+  font-weight: 600;
+}

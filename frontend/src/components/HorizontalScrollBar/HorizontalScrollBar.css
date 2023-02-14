@@ -1,0 +1,27 @@
+.scrollable-buttons {
+  position: relative;
+  border: transparent;
+  background: white;
+  margin: 5px;
+  border-radius: 15px;
+  width: 140px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.scrollable-buttons-text {
+  color: black;
+  font-family: "FatFrank";
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  background: transparent;
+  line-height: 70px;
+}
+
+.arrow {
+  color: darkblue;
+  padding: 20px;
+  font-family: "FatFrank";
+  font-size: 30px;
+}
