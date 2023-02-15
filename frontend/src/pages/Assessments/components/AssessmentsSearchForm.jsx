@@ -1,9 +1,8 @@
 import {
-  Button, Col, DatePicker, Form, Input, Row, Select, Typography
+  Button, Col, Form, Input, Row, Select, Typography
 } from 'antd';
 import React from 'react';
 import {
-  dateFormat,
   sortOrderList
 } from '../constant';
 
@@ -44,7 +43,7 @@ const AssessmentsSearchForm = ({
           </Form.Item>
         </Col>
 
-        <Col span={4}>
+        {/* <Col span={4}>
           <Form.Item name="createdAt">
             <DatePicker
               showTime={true}
@@ -54,7 +53,7 @@ const AssessmentsSearchForm = ({
               placeholder="Select CreatedAt Date"
             />
           </Form.Item>
-        </Col>
+        </Col> */}
         <Col>
           <Button type="primary" htmlType="submit">
             Search

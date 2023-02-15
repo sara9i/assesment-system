@@ -8,6 +8,8 @@ const { StatusCodes } = require('http-status-codes');
 const db = require('../models');
 
 import { assessmentBodySchema } from '../schemas/createAssessment';
+const { Sequelize, Op } = require("sequelize");
+
 
 /**
  * Controller Definitions
@@ -15,15 +17,24 @@ import { assessmentBodySchema } from '../schemas/createAssessment';
 
 export const listAssessments = async (req: Request, res: Response) => {
   try {
-    let {sortBy='id', sortOrder='DESC'} = req.query;
+    let {sortBy='id', sortOrder='DESC', assessmentSearch=''} = req.query;
     if(sortOrder === "-1"){
       sortOrder='DESC'
     }
-    const assessments  = await db.assessments.findAll({
+    const findFilters = {
       order: [
-          [sortBy, sortOrder],
-      ],
-  });
+        [sortBy, sortOrder],
+    ],
+    };
+    if(assessmentSearch){
+      findFilters["where"] = {
+        [Op.or]: [
+          {title: { [Op.like]: `%${assessmentSearch}%` }},
+          {description: { [Op.like]: `%${assessmentSearch}%` }}
+        ]
+      }
+    }
+    const assessments  = await db.assessments.findAll(findFilters);
     return res.status(StatusCodes.ACCEPTED).send(assessments);
   } catch (e) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(e.message);
