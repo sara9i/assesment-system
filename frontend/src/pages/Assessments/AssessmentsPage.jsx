@@ -1,3 +1,6 @@
+import {
+  PlusOutlined
+} from "@ant-design/icons";
 import { Button, Col, Form, notification, Row, Space, Typography } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -151,7 +154,7 @@ const AssessmentPage = () => {
           </Col>
         </Row>
         <Button type="ghost" onClick={onClickModal}>
-            Add
+            <PlusOutlined/>Add New Assessment
           </Button>
         <AssessmentAdd
             isOpen={visibleAddModal}
